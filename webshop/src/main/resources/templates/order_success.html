@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Đặt hàng thành công</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+  <h1 class="text-success mt-5">Đặt hàng thành công!</h1>
+
+  <p>Cảm ơn <strong th:text="${name}">Tên khách</strong> đã đặt mua sản phẩm ID <strong th:text="${product.id}">ID sản phẩm</strong>.</p>
+
+
+  <p>Chúng tôi sẽ liên hệ qua số điện thoại: <strong th:text="${phone}">Số điện thoại</strong> trong thời gian sớm nhất.</p>
+
+  <a href="/" class="btn btn-primary mt-3">Quay về trang chủ</a>
+</div>
+
+</body>
+</html>

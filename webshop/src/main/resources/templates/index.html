@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang bán thiết bị điện tử</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Cửa hàng điện tử</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">
+                        🛒 Giỏ hàng
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Thanh tìm kiếm -->
+<form class="d-flex my-4" action="/" method="get">
+    <input class="form-control me-2" type="search" placeholder="Tìm sản phẩm..." name="search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Tìm</button>
+</form>
+
+<!-- Sản phẩm -->
+<div class="container">
+    <h1 class="text-center my-5">Chào mừng đến với cửa hàng điện tử</h1>
+
+    <div class="row">
+        <div class="col-md-3 mb-4" th:each="product : ${products}">
+            <div class="product-card">
+                <img th:src="@{${product.image}}" alt="Product Image" class="img-fluid">
+                <h5 th:text="${product.name}">Tên sản phẩm</h5>
+                <p th:text="${product.price + ' VND'}">Giá sản phẩm</p>
+
+                <!-- Nút Mua ngay -->
+                <button type="button" class="btn btn-primary mt-2" th:onclick="'showForm(' + ${product.id} + ')'">Mua ngay</button>
+
+                <!-- Form mua hàng -->
+                <div th:id="'form-' + ${product.id}" class="product-form" style="display:none; margin-top: 10px;">
+                    <form action="/order" method="post">
+                        <input type="hidden" name="productId" th:value="${product.id}">
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Nhập tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" class="form-control" placeholder="Nhập số điện thoại" required>
+                        </div>
+                        <button type="submit" class="btn btn-success mt-2">Xác nhận mua</button>
+                    </form>
+                </div>
+
+            </div>
+        </div> <!-- Thêm đóng div ở đây -->
+    </div> <!-- Đóng .row -->
+</div> <!-- Đóng .container -->
+
+<!-- Gắn script dưới cùng body -->
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

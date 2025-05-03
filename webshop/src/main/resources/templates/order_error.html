@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang bán thiết bị điện tử</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+    <body>
+    <h1>Đặt hàng thất bại</h1>
+    <p th:text="${error}"></p>  <!-- Hiển thị thông báo lỗi -->
+    <a href="/cart">Quay lại giỏ hàng</a>
+    </body>
+    </html>

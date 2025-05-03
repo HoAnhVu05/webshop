@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Tra cứu đơn hàng</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Tra cứu đơn hàng</h2>
+  <form action="/cart/search" method="get">
+    <div class="form-group">
+      <label for="phone">Nhập số điện thoại bạn đã dùng để mua hàng:</label>
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="Số điện thoại" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Xem đơn hàng</button>
+  </form>
+</div>
+
+</body>
+</html>
